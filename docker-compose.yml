@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  postgre_db:
+    image: 'postgres:14.2-alpine'
+    container_name: 'postgre_DB'
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+
+  pg_admin:
+    image: 'dpage/pgadmin4'
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=email@email.com
+      - PGADMIN_DEFAULT_PASSWORD=admin123
+    ports:
+      - 8081:80
