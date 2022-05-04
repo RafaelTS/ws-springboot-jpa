@@ -7,11 +7,11 @@ public class ExtentManager {
     public static final ExtentReports extentReports = new ExtentReports();
 
     public synchronized static ExtentReports createExtentReports() {
-        ExtentSparkReporter reporter = new ExtentSparkReporter("./extent-reports/extent-report.html");
-        reporter.config().setReportName("Sample Extent Report");
+        ExtentSparkReporter reporter = new ExtentSparkReporter("/home/rateixeira/Documents/development/ws-springboot-jpa/extent-reports/a.html");
+        reporter.config().setReportName("My Test Report");
         extentReports.attachReporter(reporter);
-        extentReports.setSystemInfo("Blog Name", "SW Test Academy");
-        extentReports.setSystemInfo("Author", "Onur Baskirt");
+        extentReports.setSystemInfo("blabla", "pipipi");
+        extentReports.setSystemInfo("Author", "Rafael Teixeira");
         return extentReports;
     }
 }
