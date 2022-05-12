@@ -25,6 +25,7 @@ public class UserResourceTest {
 
     }
 
+    //informar via restassured
     @Test
     public void shouldSaveUserWithSucess() {
 
@@ -42,6 +43,7 @@ public class UserResourceTest {
     @Test
     public void shouldNameEquals() {
         User user = new User(3L, "Rafael", "e@email.com", "2039022", "234");
+
         Assertions.assertEquals("Rafael", user.getName());
     }
 }
