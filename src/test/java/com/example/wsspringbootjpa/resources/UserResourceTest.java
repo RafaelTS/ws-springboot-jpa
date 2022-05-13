@@ -1,49 +1,20 @@
 package com.example.wsspringbootjpa.resources;
 
-import com.example.wsspringbootjpa.entities.User;
-import com.example.wsspringbootjpa.repositories.UserRepository;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import com.example.wsspringbootjpa.core.BaseTest;
+import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import io.restassured.*;
 
-
-public class UserResourceTest {
-
-    @Mock
-    private UserRepository repository;
-
-    @InjectMocks
-    private UserResource resource;
-
-    @BeforeEach
-    public void setup() {
-       MockitoAnnotations.openMocks(this);
-
-    }
-
-    //informar via restassured
-    @Test
-    public void shouldSaveUserWithSucess() {
-
-        User user = new User();
-
-        user.setName("Rafael");
-        user.setEmail("eu@eu.com");
-        user.setPassword("234");
-        user.setPhone("5151515");
-        resource.insert(user);
-        Mockito.verify(repository).save(user);
-
-    }
+public class UserResourceTest extends BaseTest {
 
     @Test
-    public void shouldNameEquals() {
-        User user = new User(3L, "Rafael", "e@email.com", "2039022", "234");
+    public void ShouldNameEquals() {
 
-        Assertions.assertEquals("Rafael", user.getName());
+        RestAssured.given()
+                .when()
+                    .get("/users")
+                .then()
+                    .statusCode(200);
     }
+
 }
