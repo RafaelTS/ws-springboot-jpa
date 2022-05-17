@@ -12,5 +12,4 @@ public interface Constantes {
 
     Long MAX_TIMEOUT = 5000L;
 
-
 }
